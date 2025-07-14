@@ -1,5 +1,5 @@
-// // 加载页脚 s
-// 	// 原生js
+// 加载页脚 s
+	// 原生js
 // if (document.getElementById('zf-pro-footer-js')) {
 // 	fetch('../footer.html')
 // 		.then(response => response.text())
@@ -18,7 +18,7 @@
 // 		.catch(() => {});
 // 		// .catch(err => console.error('导航加载失败:', err));
 // }
-// // 加载页脚 e
+// 加载页脚 e
 
 
 
