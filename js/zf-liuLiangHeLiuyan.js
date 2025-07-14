@@ -87,7 +87,7 @@ $(function(){
 		
 		
 		const zfSubError = $('.zf-sub-error');  // 提交失败提示框
-		console.log(zfSubError.html);
+		console.log(zfSubError);
 		const zfSubErrorTipClose = zfSubError.find('.zf-sub-error-tip-close');  // 关闭提示
 		const zfSubErrorTip = zfSubError.find('.zf-sub-error-tip');  // 错误提示
 		const zfSubErrorTipTitle = zfSubError.find('.zf-sub-error-tip-title'); // 错误提示-title
@@ -359,6 +359,7 @@ $(function(){
 		// 给按钮添加单击事件
 		$('#zf-footer-button').on('click', function(event){ 
 			event.preventDefault();
+			console.log('单击提交footer');
 			zfSubmit();
 		});
 		
@@ -527,7 +528,7 @@ $(function(){
 			
 			
 			// 提交执行
-			function zfLiuyan() {  
+			function zfLiuyanSub() {  
 				lyzfSuccess.removeClass('zf-none');
 				let zfUserData = {  // 发送到服务器数据
 					'userName': lyzfUserName.val().trim(),
@@ -570,7 +571,7 @@ $(function(){
 				
 			};
 			
-			function zfSubmit() {
+			function zfSubmitGo() {
 				let ef = 'FB';  // 前端 
 				zflyformIsValid = true;
 				zfuserNameInput();
@@ -578,7 +579,7 @@ $(function(){
 				zfuserEmailInput();
 				zfuserMessageInput();
 				if (zfLinkChek.trim() && zflyformIsValid) {
-					zfLiuyan();
+					zfLiuyanSub();
 				} else if (!zfLinkChek.trim() && !zflyformIsValid) {  // 2 输入未完成 & 页面加载服务器有问题
 					zflySubErrorOpen(ef, 2);
 				} else { 
@@ -593,7 +594,8 @@ $(function(){
 			// 给按钮添加单击事件
 			lyzfSubMessage.on('click', function(event){ 
 				event.preventDefault();
-				zfSubmit();
+				console.log('单击提交Go');
+				zfSubmitGo();
 			});
 			
 			// 打开错误提示窗，同时关闭提交遮罩
