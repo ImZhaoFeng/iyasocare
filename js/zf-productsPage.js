@@ -13,7 +13,7 @@ $(function() {
 		const params = new URLSearchParams(window.location.search);
 		currentPage = parseInt(params.get('p')) || currentPage;
 		// 加载JSON数据
-		$.getJSON('..json/products.json', function(data) {
+		$.getJSON('json/products.json', function(data) {
 			productsData = data.data.filter(item => item.use == 1); // 只选择use == 1的
 			productsDataLength = productsData.length;
 			totalPages = Math.ceil(productsDataLength / itemsPerPage);
