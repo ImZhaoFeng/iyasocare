@@ -2,6 +2,7 @@ $(function(){
 	liuLiangHeLiuyan();
 	function liuLiangHeLiuyan() {
 		console.log('liuLiang load');
+		console.log($('#zf-footer-button').val());
 		let visitDomain = window.location.hostname;  // 用户访问的域名 visit_domain
 		let visitPage = window.location.pathname;  // 用户访问的页面 visit_page
 		let visitPagePosition = 'footer';  // 页面位置 visit_page_position
