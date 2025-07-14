@@ -1,8 +1,6 @@
 $(function(){
 	liuLiangHeLiuyan();
 	function liuLiangHeLiuyan() {
-		console.log('liuLiang load');
-		console.log($('#zf-footer-button').val());
 		let visitDomain = window.location.hostname;  // 用户访问的域名 visit_domain
 		let visitPage = window.location.pathname;  // 用户访问的页面 visit_page
 		let visitPagePosition = 'footer';  // 页面位置 visit_page_position
@@ -88,7 +86,6 @@ $(function(){
 		
 		
 		const zfSubError = $('.zf-sub-error');  // 提交失败提示框
-		console.log(zfSubError);
 		const zfSubErrorTipClose = zfSubError.find('.zf-sub-error-tip-close');  // 关闭提示
 		const zfSubErrorTip = zfSubError.find('.zf-sub-error-tip');  // 错误提示
 		const zfSubErrorTipTitle = zfSubError.find('.zf-sub-error-tip-title'); // 错误提示-title
@@ -198,9 +195,7 @@ $(function(){
 					zfLinkChek = s.t;
 					zfFooterCheckTip.text('欢迎留言');
 				},
-				error: function(e){
-					console.log(e);
-				}
+				error: function(e){}
 			});
 		}
 		
@@ -360,7 +355,6 @@ $(function(){
 		// 给按钮添加单击事件
 		$('#zf-footer-button').on('click', function(event){ 
 			event.preventDefault();
-			console.log('单击提交footer');
 			zfSubmit();
 		});
 		
@@ -369,11 +363,6 @@ $(function(){
 			zfSubError.removeClass('zf-none');
 			zfSuccess.addClass('zf-none');
 			let t = (ZF_ERR_ARR?.[ef]?.[code]?.t ?? ZF_ERR_TIP_TITLE) + '(Err code:' + ((ef == 'FB') ? '0' : '1') + '-' + code + ')';
-			console.log(t);
-			console.log(zfSubError);
-			console.log(zfSuccess);
-			
-			
 			let c = ZF_ERR_ARR?.[ef]?.[code]?.c ?? ZF_ERR_TIP_TEXT;
 			if (Array.isArray(c)) {c = c.join('\n');}
 			if (Number(time) > 0) { // time = String(time);
@@ -595,7 +584,6 @@ $(function(){
 			// 给按钮添加单击事件
 			lyzfSubMessage.on('click', function(event){ 
 				event.preventDefault();
-				console.log('单击提交Go');
 				zfSubmitGo();
 			});
 			
@@ -604,7 +592,6 @@ $(function(){
 				zfSubError.removeClass('zf-none');
 				lyzfSuccess.addClass('zf-none');
 				let t = (ZF_ERR_ARR?.[ef]?.[code]?.t ?? ZF_ERR_TIP_TITLE) + ' (Err code:' + ((ef == 'FB') ? '0' : '1') + '-' + code + ')';
-				console.log(t)
 				let c = ZF_ERR_ARR?.[ef]?.[code]?.c ?? ZF_ERR_TIP_TEXT;
 				if (Array.isArray(c)) {c = c.join('\n');}
 				if (Number(time) > 0) { // time = String(time);
