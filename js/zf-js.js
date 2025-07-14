@@ -9,6 +9,7 @@ if (document.getElementById('zf-pro-footer-js')) {
 		.catch(() => {});
 		// .catch(err => console.error('导航加载失败:', err));
 } else if (document.getElementById('zf-footer-js')) {
+	console.log('footer load')
 	fetch('footer.html')
 		.then(response => response.text())
 		.then(html => {

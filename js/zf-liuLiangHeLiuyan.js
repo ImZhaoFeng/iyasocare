@@ -1,6 +1,7 @@
 $(function(){
 	liuLiangHeLiuyan();
 	function liuLiangHeLiuyan() {
+		console.log('liuLiang load');
 		let visitDomain = window.location.hostname;  // 用户访问的域名 visit_domain
 		let visitPage = window.location.pathname;  // 用户访问的页面 visit_page
 		let visitPagePosition = 'footer';  // 页面位置 visit_page_position
@@ -195,7 +196,9 @@ $(function(){
 					zfLinkChek = s.t;
 					zfFooterCheckTip.text('欢迎留言');
 				},
-				error: function(e){}
+				error: function(e){
+					console.log(e);
+				}
 			});
 		}
 		
@@ -363,7 +366,11 @@ $(function(){
 			zfSubError.removeClass('zf-none');
 			zfSuccess.addClass('zf-none');
 			let t = (ZF_ERR_ARR?.[ef]?.[code]?.t ?? ZF_ERR_TIP_TITLE) + '(Err code:' + ((ef == 'FB') ? '0' : '1') + '-' + code + ')';
-			console.log(t)
+			console.log(t);
+			console.log(zfSubError);
+			console.log(zfSuccess);
+			
+			
 			let c = ZF_ERR_ARR?.[ef]?.[code]?.c ?? ZF_ERR_TIP_TEXT;
 			if (Array.isArray(c)) {c = c.join('\n');}
 			if (Number(time) > 0) { // time = String(time);
