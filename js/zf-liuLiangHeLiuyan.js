@@ -87,6 +87,7 @@ $(function(){
 		
 		
 		const zfSubError = $('.zf-sub-error');  // 提交失败提示框
+		console.log(zfSubError);
 		const zfSubErrorTipClose = zfSubError.find('.zf-sub-error-tip-close');  // 关闭提示
 		const zfSubErrorTip = zfSubError.find('.zf-sub-error-tip');  // 错误提示
 		const zfSubErrorTipTitle = zfSubError.find('.zf-sub-error-tip-title'); // 错误提示-title
