@@ -194,7 +194,6 @@ $(function(){
 				dataType: "json",
 				success: function(s){ // 请求成功要执行的代码 // 参数：是从服务器返回的数据
 					zfLinkCheck = s.t;
-					console.log(s);
 				},
 				error: function(e){}
 			});
