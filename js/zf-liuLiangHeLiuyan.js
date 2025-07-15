@@ -153,9 +153,10 @@ $(function(){
 		
 		const ZF_ERR_TIP_TITLE = "ERROR:";
 		const ZF_ERR_TIP_TEXT = "Something Went Wrong, Please Try Again Later.";
-		const ZF_AJAX_URL = 'http://127.0.0.1:50519/user/ly';
+		const ZF_AJAX_URL = 'https://cqujoin.cn:8008/user/ly';
+		// const ZF_AJAX_URL = 'http://127.0.0.1:50519/user/ly';
 		
-		let zfLinkChek = '';  // 需要留言时传递到API
+		let zfLinkCheck = '';  // 需要留言时传递到API
 		
 		const zfLiuLiangData = {
 			'visitDomain': visitDomain,  // 用户访问的域名
@@ -192,8 +193,7 @@ $(function(){
 				data: zfLiuLiangData,
 				dataType: "json",
 				success: function(s){ // 请求成功要执行的代码 // 参数：是从服务器返回的数据
-					zfLinkChek = s.t;
-					zfFooterCheckTip.text('欢迎留言');
+					zfLinkCheck = s.t;
 				},
 				error: function(e){}
 			});
@@ -296,7 +296,7 @@ $(function(){
 				'userTel': zfUserTel.val().trim(),
 				'userEmail': zfUserEmail.val().trim(),
 				'userMessage': zfUserMessage.val().trim(),
-				'zfLinkChek': zfLinkChek,
+				'zfLinkCheck': zfLinkCheck,
 			};
 			
 			let zfLiuyanData = {
@@ -339,9 +339,9 @@ $(function(){
 			userTelInput();
 			userEmailInput();
 			userMessageInput();
-			if (zfLinkChek.trim() && formIsValid) {
+			if (zfLinkCheck.trim() && formIsValid) {
 				zfLiuyan();
-			} else if (!zfLinkChek.trim() && !formIsValid) {  // 2 输入未完成 & 页面加载服务器有问题
+			} else if (!zfLinkCheck.trim() && !formIsValid) {  // 2 输入未完成 & 页面加载服务器有问题
 				zfSubErrorOpen(ef, 2);
 			} else { 
 				if (!formIsValid) {  // 0 输入未完成
@@ -525,7 +525,7 @@ $(function(){
 					'userTel': lyzfUserTel.val().trim(),
 					'userEmail': lyzfUserEmail.val().trim(),
 					'userMessage': lyzfUserMessage.val().trim(),
-					'zfLinkChek': zfLinkChek,
+					'zfLinkCheck': zfLinkCheck,
 				};
 				
 				let zfLiuyanData = {
@@ -568,9 +568,9 @@ $(function(){
 				zfuserTelInput();
 				zfuserEmailInput();
 				zfuserMessageInput();
-				if (zfLinkChek.trim() && zflyformIsValid) {
+				if (zfLinkCheck.trim() && zflyformIsValid) {
 					zfLiuyanSub();
-				} else if (!zfLinkChek.trim() && !zflyformIsValid) {  // 2 输入未完成 & 页面加载服务器有问题
+				} else if (!zfLinkCheck.trim() && !zflyformIsValid) {  // 2 输入未完成 & 页面加载服务器有问题
 					zflySubErrorOpen(ef, 2);
 				} else { 
 					if (!zflyformIsValid) {  // 0 输入未完成
