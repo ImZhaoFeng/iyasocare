@@ -2,7 +2,6 @@ $(function(){
 	
 	function zfLoadFooter() {
 		if (document.getElementById('zf-footer-js')) {
-			console.log('zfLoadFooter()');
 			fetch('footer.html')
 				.then(response => response.text())
 				.then(html => {
@@ -29,17 +28,13 @@ $(function(){
 		const footerPro = document.getElementById('zf-pro-footer-js');
 		if (footer) {
 			isNeedLoad = footer.innerHTML.trim() =='';
-			console.log('没有加载页脚');
 		} else if (footerPro) {
 			isNeedLoad = footerPro.innerHTML.trim() == '';
-			console.log('没有加载页脚PRO');
 		}
 		isNeedLoad ? zfLoadFooter() : liuLiangHeLiuyan();
 		return isNeedLoad;
 	}
 	checkIsNeedLoad();
-	// checkIsNeedLoad() ? liuLiangHeLiuyan() : null;
-	
 
 	function liuLiangHeLiuyan() {
 		let visitDomain = window.location.hostname;  
@@ -129,7 +124,6 @@ $(function(){
 		const zfSubErrorTipClose = zfSubError.find('.zf-sub-error-tip-close'); 
 		const zfSubErrorTip = zfSubError.find('.zf-sub-error-tip');
 		const zfSubErrorTipTitle = zfSubError.find('.zf-sub-error-tip-title'); 
-		console.log(zfSubError);
 		
 		const ZF_ERR_ARR = {
 			FB: {
