@@ -88,6 +88,7 @@ $(function(){
 		const zfSubErrorTipClose = zfSubError.find('.zf-sub-error-tip-close'); 
 		const zfSubErrorTip = zfSubError.find('.zf-sub-error-tip');
 		const zfSubErrorTipTitle = zfSubError.find('.zf-sub-error-tip-title'); 
+		console.log(zfSubError);
 		
 		const ZF_ERR_ARR = {
 			EB: {
