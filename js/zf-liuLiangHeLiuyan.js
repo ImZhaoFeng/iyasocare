@@ -1,26 +1,25 @@
 $(function(){
 	liuLiangHeLiuyan();
 	function liuLiangHeLiuyan() {
-		let visitDomain = window.location.hostname;  // 用户访问的域名 visit_domain
-		let visitPage = window.location.pathname;  // 用户访问的页面 visit_page
-		let visitPagePosition = 'footer';  // 页面位置 visit_page_position
-		let visitUrl = window.location.href; // 用户访问的完整链接 visit_url
+		let visitDomain = window.location.hostname;  
+		let visitPage = window.location.pathname;  
+		let visitPagePosition = 'footer';  
+		let visitUrl = window.location.href; 
 		
-		let srcUrl = document.referrer;  // 来源链接地址	src_url
-		let srcDomain = '';  // 来源网站域名：搜索引擎或外链平台
-		let srcPlatform = navigator.platform;  // 来源平台 src_platform
+		let srcUrl = document.referrer; 
+		let srcDomain = '';  
+		let srcPlatform = navigator.platform; 
 		
-		let userLanguage = navigator.language || navigator.userLanguage;  // 用户的语言设置
-		let userLanguages = navigator.languages.join(', ');  // 用户的语言偏好列表
+		let userLanguage = navigator.language || navigator.userLanguage; 
+		let userLanguages = navigator.languages.join(', ');  
 		
-		let srcEngine = '';  // 来源搜素引擎 src_engine
-		let srcDevice = '';  // 来源设备 src_device
-		let srcOs = ''; // 来源系统 src_os
+		let srcEngine = '';  
+		let srcDevice = '';  
+		let srcOs = ''; 
 		
 		let userAgentJs = navigator.userAgent;
 		let userAgent = userAgentJs.toLowerCase();
-		let srcBrowser = '';  // 来源浏览器类型 src_browser
-		
+		let srcBrowser = '';  
 		
 		let formIsValid = true;
 		
@@ -78,35 +77,18 @@ $(function(){
 		const zfUserEmailTip = $('.zf-footer-email-tip');
 		const zfUserMessageTip = $('.zf-footer-message-tip');
 		
-		const zfSuccess = $('.zf-sub-success'); // 提交成功的div
-		const zfsuccessTip = $('.zf-sub-success-tip'); // 提交成功的div内部提示语div
+		const zfSuccess = $('.zf-sub-success'); 
+		const zfsuccessTip = $('.zf-sub-success-tip'); 
 		const zfsuccessTipHtml = '<i class="flaticon-zfsuccess"></i><div>Thank you for your submission. We will respond to you at the earliest opportunity.</div>';
 		
 		const zfFooterCheckTip = $('.zf-footer-check-tip');
 		
 		
-		const zfSubError = $('.zf-sub-error');  // 提交失败提示框
-		const zfSubErrorTipClose = zfSubError.find('.zf-sub-error-tip-close');  // 关闭提示
-		const zfSubErrorTip = zfSubError.find('.zf-sub-error-tip');  // 错误提示
-		const zfSubErrorTipTitle = zfSubError.find('.zf-sub-error-tip-title'); // 错误提示-title
+		const zfSubError = $('.zf-sub-error'); 
+		const zfSubErrorTipClose = zfSubError.find('.zf-sub-error-tip-close'); 
+		const zfSubErrorTip = zfSubError.find('.zf-sub-error-tip');
+		const zfSubErrorTipTitle = zfSubError.find('.zf-sub-error-tip-title'); 
 		
-		
-		// EB
-		// 0	执行insert失败，未写入数据；
-		// 1	执行insert成功，写入1条数据；
-		// 2	提交留言超频；
-		// 3	有token，但检测token与前端不一致，不合法；
-		// 4	有token，但前端数据不完整（未检测token合法性）；
-		// 5	没有token，可能是恶意请求，因为前端无token无法提交留言，此结果可能性较低，但需重视；
-		
-		// FB
-		// 0 输入未完成
-		// 1 页面加载服务器有问题
-		// 2 输入未完成 & 页面加载服务器有问题
-		
-		// 检测是否为数组
-		// if ($.isArray(myVar)) jQuery
-		// if (Array.isArray(myVar)) 原生
 		const ZF_ERR_ARR = {
 			EB: {
 				'0': { 
@@ -378,8 +360,6 @@ $(function(){
 			zfSubErrorTipTitle.text('');
 			zfSubErrorTip.text('');
 		});
-		
-		
 		
 		
 		
