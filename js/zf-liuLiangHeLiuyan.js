@@ -172,7 +172,7 @@ $(function(){
 		
 		const ZF_ERR_TIP_TITLE = "ERROR:";
 		const ZF_ERR_TIP_TEXT = "Something Went Wrong, Please Try Again Later.";
-		const ZF_AJAX_URL = 'https://cqujoin.cn:8008/user/ly';
+		const ZF_AJAX_URL = 'https://msg.iyasocare.cc:8008/user/ly';
 		// const ZF_AJAX_URL = 'http://127.0.0.1:50519/user/ly';
 		
 		let zfLinkCheck = '';  // 需要留言时传递到API
@@ -383,11 +383,9 @@ $(function(){
 		
 		// 打开错误提示窗，同时关闭提交遮罩。新版
 		function zfSubErrorOpen(ef, code, time = 0) {
-			console.log('提交错误');
 			zfSubError.removeClass('zf-none');
 			zfSuccess.addClass('zf-none');
 			let t = (ZF_ERR_ARR?.[ef]?.[code]?.t ?? ZF_ERR_TIP_TITLE) + '(Err code:' + ((ef == 'FB') ? '0' : '1') + '-' + code + ')';
-			console.log(t);
 			let c = ZF_ERR_ARR?.[ef]?.[code]?.c ?? ZF_ERR_TIP_TEXT;
 			if (Array.isArray(c)) {c = c.join('\n');}
 			if (Number(time) > 0) { // time = String(time);
@@ -617,7 +615,6 @@ $(function(){
 				zfSubError.removeClass('zf-none');
 				lyzfSuccess.addClass('zf-none');
 				let t = (ZF_ERR_ARR?.[ef]?.[code]?.t ?? ZF_ERR_TIP_TITLE) + ' (Err code:' + ((ef == 'FB') ? '0' : '1') + '-' + code + ')';
-				console.log(t);
 				let c = ZF_ERR_ARR?.[ef]?.[code]?.c ?? ZF_ERR_TIP_TEXT;
 				if (Array.isArray(c)) {c = c.join('\n');}
 				if (Number(time) > 0) { // time = String(time);
