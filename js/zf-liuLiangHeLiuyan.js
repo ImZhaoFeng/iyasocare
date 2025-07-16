@@ -611,7 +611,6 @@ $(function(){
 			
 			// 打开错误提示窗，同时关闭提交遮罩
 			function zflySubErrorOpen(ef, code, time = 0) {
-				console.log('错误提交2');
 				zfSubError.removeClass('zf-none');
 				lyzfSuccess.addClass('zf-none');
 				let t = (ZF_ERR_ARR?.[ef]?.[code]?.t ?? ZF_ERR_TIP_TITLE) + ' (Err code:' + ((ef == 'FB') ? '0' : '1') + '-' + code + ')';
