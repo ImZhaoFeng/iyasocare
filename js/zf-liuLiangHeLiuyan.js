@@ -2,6 +2,7 @@ $(function(){
 	
 	function zfLoadFooter() {
 		if (document.getElementById('zf-footer-js')) {
+			console.log('zfLoadFooter()');
 			fetch('footer.html')
 				.then(response => response.text())
 				.then(html => {
