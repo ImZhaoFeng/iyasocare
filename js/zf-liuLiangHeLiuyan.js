@@ -177,8 +177,11 @@ $(function(){
 				dataType: "json",
 				success: function(s){ // 请求成功要执行的代码 // 参数：是从服务器返回的数据
 					zfLinkCheck = s.t;
+					console.log(s);
 				},
-				error: function(e){}
+				error: function(e){
+					console.log(e);
+				}
 			});
 		}
 		
@@ -299,7 +302,7 @@ $(function(){
 				data: zfLiuyanData,
 				dataType: "json",
 				success: function(s){ // 请求成功要执行的代码 // 参数：是从服务器返回的数据
-					// console.log(s);
+					console.log(s);
 					let code = s.lyr;
 					if (code == 1) {  // 留言成功
 						subSuccess();
@@ -310,6 +313,7 @@ $(function(){
 				},
 				error: function(e){ // 请求失败要执行的代码
 					zfSubErrorOpen(ef, 400);
+					console.log(e);
 				}
 			});
 			
@@ -343,9 +347,11 @@ $(function(){
 		
 		// 打开错误提示窗，同时关闭提交遮罩。新版
 		function zfSubErrorOpen(ef, code, time = 0) {
+			console.log('提交错误');
 			zfSubError.removeClass('zf-none');
 			zfSuccess.addClass('zf-none');
 			let t = (ZF_ERR_ARR?.[ef]?.[code]?.t ?? ZF_ERR_TIP_TITLE) + '(Err code:' + ((ef == 'FB') ? '0' : '1') + '-' + code + ')';
+			console.log(t);
 			let c = ZF_ERR_ARR?.[ef]?.[code]?.c ?? ZF_ERR_TIP_TEXT;
 			if (Array.isArray(c)) {c = c.join('\n');}
 			if (Number(time) > 0) { // time = String(time);
@@ -526,7 +532,7 @@ $(function(){
 					data: zfLiuyanData,
 					dataType: "json",
 					success: function(s){ // 请求成功要执行的代码 // 参数：是从服务器返回的数据
-						// console.log(s);
+						console.log(s);
 						let code = s.lyr;
 						if (code == 1) {  // 留言成功
 							zfsubSuccess();
@@ -537,6 +543,7 @@ $(function(){
 					},
 					error: function(e){ // 请求失败要执行的代码
 						zflySubErrorOpen(ef, 400);
+						console.log(e);
 					}
 				});
 				
@@ -570,9 +577,11 @@ $(function(){
 			
 			// 打开错误提示窗，同时关闭提交遮罩
 			function zflySubErrorOpen(ef, code, time = 0) {
+				console.log('错误提交2');
 				zfSubError.removeClass('zf-none');
 				lyzfSuccess.addClass('zf-none');
 				let t = (ZF_ERR_ARR?.[ef]?.[code]?.t ?? ZF_ERR_TIP_TITLE) + ' (Err code:' + ((ef == 'FB') ? '0' : '1') + '-' + code + ')';
+				console.log(t);
 				let c = ZF_ERR_ARR?.[ef]?.[code]?.c ?? ZF_ERR_TIP_TEXT;
 				if (Array.isArray(c)) {c = c.join('\n');}
 				if (Number(time) > 0) { // time = String(time);
