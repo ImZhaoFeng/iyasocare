@@ -28,12 +28,15 @@ $(function(){
 		const footerPro = document.getElementById('zf-pro-footer-js');
 		if (footer) {
 			isNeedLoad = footer.innerHTML.trim() =='';
+			console.log('没有加载页脚');
 		} else if (footerPro) {
 			isNeedLoad = footerPro.innerHTML.trim() == '';
+			console.log('没有加载页脚PRO');
 		}
 		isNeedLoad ? zfLoadFooter() : liuLiangHeLiuyan();
 		return isNeedLoad;
 	}
+	checkIsNeedLoad();
 	// checkIsNeedLoad() ? liuLiangHeLiuyan() : null;
 	
 
