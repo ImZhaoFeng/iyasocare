@@ -1,5 +1,42 @@
 $(function(){
-	liuLiangHeLiuyan();
+	
+	function zfLoadFooter() {
+		if (document.getElementById('zf-footer-js')) {
+			fetch('footer.html')
+				.then(response => response.text())
+				.then(html => {
+					document.getElementById('zf-footer-js').innerHTML = html;
+					liuLiangHeLiuyan();
+				})
+				.catch(() => {});
+				// .catch(err => console.error('导航加载失败:', err));
+		} else if (document.getElementById('zf-pro-footer-js')) {
+			fetch('../footer.html')
+				.then(response => response.text())
+				.then(html => {
+					document.getElementById('zf-pro-footer-js').innerHTML = html;
+					liuLiangHeLiuyan();
+				})
+				.catch(() => {});
+				// .catch(err => console.error('导航加载失败:', err));
+		} 
+	}
+	
+	function checkIsNeedLoad() {
+		let isNeedLoad = false;
+		const footer = document.getElementById('zf-footer-js');
+		const footerPro = document.getElementById('zf-pro-footer-js');
+		if (footer) {
+			isNeedLoad = footer.innerHTML.trim() =='';
+		} else if (footerPro) {
+			isNeedLoad = footerPro.innerHTML.trim() == '';
+		}
+		isNeedLoad ? zfLoadFooter() : liuLiangHeLiuyan();
+		return isNeedLoad;
+	}
+	// checkIsNeedLoad() ? liuLiangHeLiuyan() : null;
+	
+
 	function liuLiangHeLiuyan() {
 		let visitDomain = window.location.hostname;  
 		let visitPage = window.location.pathname;  
@@ -91,6 +128,21 @@ $(function(){
 		console.log(zfSubError);
 		
 		const ZF_ERR_ARR = {
+			FB: {
+				'0': {
+					t: "Oops! Your submission wasn’t completed",
+					c: "Please ensure all required fields are filled correctly and try again."
+				},
+				'1': {
+					t: "Sorry, the page didn’t load properly.",
+					c: "Please refresh your browser or try submitting again later."
+				},
+				'2': {
+					t: "We encountered a couple of issues.",
+					c: ["Page didn't load. You'll need to refresh first before trying again.",
+						"Incomplete submission. Check all required fields and resubmit."]
+				}
+			},
 			EB: {
 				'0': { 
 					t: "Oops, there seems to be a server issue.",
@@ -117,21 +169,7 @@ $(function(){
 					c: "Sorry, there’s an issue with the server or the network. Please try again later."
 				}
 			},
-			FB: {
-				'0': {
-					t: "Oops! Your submission wasn’t completed",
-					c: "Please ensure all required fields are filled correctly and try again."
-				},
-				'1': {
-					t: "Sorry, the page didn’t load properly.",
-					c: "Please refresh your browser or try submitting again later."
-				},
-				'2': {
-					t: "We encountered a couple of issues.",
-					c: ["Page didn't load. You'll need to refresh first before trying again.",
-						"Incomplete submission. Check all required fields and resubmit."]
-				}
-			}
+			
 		}
 		
 		const ZF_ERR_TIP_TITLE = "ERROR:";
